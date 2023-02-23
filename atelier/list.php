@@ -1,7 +1,7 @@
 <?php
-   session_start();
+
 if (isset($_SESSION["login"])){
-    include("../common/header.php");
+    
     // déclaration de la constante
     define('NOMBRE_MAXIMUM',15) ;
 
@@ -27,7 +27,7 @@ if (isset($_SESSION["login"])){
  
   <div class="row">
     <div class="col center">
-    <a href="create.php"><button class="btn btn-primary">Créer</button></a>
+    <a href="index.php?route=create"><button class="btn btn-primary">Créer</button></a>
     </div>
   </div>
   <div class="row">
@@ -48,8 +48,8 @@ if (isset($_SESSION["login"])){
                 <th scope="row"><?= $ligne["id"] ?></th>
                 <td><?= $ligne["titre"]?></td>
                 <td>
-                    <a href="delete.php?id=<?= $ligne["id"] ?>"><button class="btn btn-danger">Supprimer</button></a>
-                    <a href="edit.php?id=<?= $ligne["id"] ?>"><button class="btn btn-info">Modifier</button></a>
+                    <a href="index.php?route=delete&id=<?= $ligne["id"] ?>"><button class="btn btn-danger">Supprimer</button></a>
+                    <a href="index.php?route=edit&id=<?= $ligne["id"] ?>"><button class="btn btn-info">Modifier</button></a>
                 </td>
 
             </tr>
@@ -68,7 +68,7 @@ if (isset($_SESSION["login"])){
    
         
     <?php
-    include("../common/footer.php");
+
 }
 else
 {

@@ -13,5 +13,5 @@ $requete->execute( ["id"=>$_GET["id"]]);
 session_start();
 $_SESSION["success"]="Atelier supprimé avec succès";
    
-header("location:list.php");
+header("location:index.php?route=list");
 ?>

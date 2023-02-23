@@ -1,7 +1,5 @@
 <?php
-   session_start();
 if (isset($_SESSION["login"])){
-    include("../common/header.php");
     $mysqlConnection = new PDO(
       'mysql:host=localhost;dbname=tp_php_sio;charset=utf8',
       'root',
@@ -18,7 +16,7 @@ if (isset($_SESSION["login"])){
     ?>
      <div class="row">
         <div class="col center">
-          <form action="update.php?id=<?= $_GET["id"]?>" method="post">
+          <form action="index.php?route=update&id=<?= $_GET["id"]?>" method="post">
             <div class="form-group">
               <label for="titre">Titre</label>
               <input type="text" class="form-control" id="titre" name="titre" value="<?= $atelier["titre"]?>"/>
@@ -30,11 +28,9 @@ if (isset($_SESSION["login"])){
       </div>
 
     <?php
-    include("../common/footer.php");
 }
 else
 {
-    session_start();
     $_SESSION["error"]="il faut être connecté pour avoir acces";
     header("location:./index.php");
 }

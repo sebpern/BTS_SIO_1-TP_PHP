@@ -1,4 +1,4 @@
-<form action="./auth/check_login.php" method="post">
+<form action="index.php?route=check_login" method="post">
     <div class="form-group">
         <label for="login">Login</label>
         <input type="text" class="form-control" id="login" name="login" placeholder="Entrer votre login">

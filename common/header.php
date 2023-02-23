@@ -13,7 +13,23 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-   <?php include("menu.php");?>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <?php
+        if (isset($_SESSION["login"])){
+        ?>
+          <li class="nav-item">
+            <a class="nav-link " href="../atelier/list.php">Lister</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link " href="../auth/logout.php">Déconnexion</a>
+          </li>
+          <?php
+        }
+        ?>
+      </ul>
+</div>
   </div>
 </nav>
 <?php

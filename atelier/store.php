@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_POST["titre"])==false || empty($_POST["titre"])){
 
     $_SESSION["error"]="Le titre est obligatoire";
@@ -21,6 +20,6 @@ $requete->execute( ["titre"=>$_POST["titre"]]);
 
 $_SESSION["success"]="Atelier crée avec succès";
    
-header("location:list.php");
+header("location:index.php?route=list");
 }
 ?>

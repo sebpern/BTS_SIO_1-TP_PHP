@@ -1,9 +1,8 @@
 <?php
-session_start();
 if (isset($_POST["titre"])==false || empty($_POST["titre"])){
 
     $_SESSION["error"]="Le titre est obligatoire";
-    header("location:edit.php?id=".$_GET["id"]);
+    header("location:index.php?route=edit&id=".$_GET["id"]);
 }
 else
 {
@@ -21,6 +20,6 @@ $requete->execute( ["id"=>$_GET["id"],"titre"=>$_POST["titre"]]);
 
 $_SESSION["success"]="Atelier modifié avec succès";
    
-header("location:list.php");
+header("location:index.php?route=list");
 }
 ?>
