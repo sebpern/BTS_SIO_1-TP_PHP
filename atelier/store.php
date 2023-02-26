@@ -2,7 +2,7 @@
 if (isset($_POST["titre"])==false || empty($_POST["titre"])){
 
     $_SESSION["error"]="Le titre est obligatoire";
-    header("location:create.php");
+    header("location:index.php?route=create");
 }
 else
 {
