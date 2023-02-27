@@ -9,9 +9,9 @@ if (isset($_SESSION["login"])){
     // création de le lien entre serv web et serv bd
 
     $mysqlConnection = new PDO(
-        'mysql:host=localhost;dbname=tp_php_sio;charset=utf8',
-        'root',
-        '',
+        'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
+        USER,
+        PASSWORD,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
     );
 

@@ -31,6 +31,7 @@
       </div>
     </nav>
 <?php
+include("config/database.php");
 if (isset($_SESSION["error"])){
   ?>
   <div class="alert alert-danger" role="alert">

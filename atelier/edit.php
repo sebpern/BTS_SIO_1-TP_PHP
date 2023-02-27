@@ -1,11 +1,11 @@
 <?php
 if (isset($_SESSION["login"])){
-    $mysqlConnection = new PDO(
-      'mysql:host=localhost;dbname=tp_php_sio;charset=utf8',
-      'root',
-      '',
-      [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
-  );
+  $mysqlConnection = new PDO(
+    'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8',
+    USER,
+    PASSWORD,
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
+);
 
   // ordre de mission
   $requete = $mysqlConnection->prepare('SELECT * FROM atelier where id =:id');
