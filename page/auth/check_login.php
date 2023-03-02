@@ -15,7 +15,7 @@ $user = $requete->fetch();
 if ($user){
   
     $_SESSION["login"]=$_POST["login"];
-    header("location:index.php?route=list");
+    header("location:index.php?route=list-atelier");
   
 }
 else

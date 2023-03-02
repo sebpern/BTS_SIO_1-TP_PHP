@@ -2,7 +2,7 @@
 if (isset($_POST["titre"])==false || empty($_POST["titre"])){
 
     $_SESSION["error"]="Le titre est obligatoire";
-    header("location:index.php?route=edit&id=".$_GET["id"]);
+    header("location:index.php?route=edit-atelier&id=".$_GET["id"]);
 }
 else
 {
@@ -14,12 +14,13 @@ else
     );
 
 // ordre de mission
-$requete = $mysqlConnection->prepare('update atelier set titre = :titre where id =:id');
+$requete = $mysqlConnection->prepare('update atelier set titre = :titre, fk_categorie=:fk_categorie where id_atelier =:id');
 //execution de la requete
-$requete->execute( ["id"=>$_GET["id"],"titre"=>$_POST["titre"]]);
-
+$requete->execute( ["id"=>$_GET["id"],"titre"=>$_POST["titre"],"fk_categorie"=>$_POST["categorie"]]);
+$mysqlConnection = null;
+$requete = null;
 $_SESSION["success"]="Atelier modifié avec succès";
    
-header("location:index.php?route=list");
+header("location:index.php?route=list-atelier");
 }
 ?>

@@ -17,9 +17,11 @@
             if (isset($_SESSION["login"])){
             ?>
               <li class="nav-item">
-                <a class="nav-link " href="index.php?route=list">Lister</a>
+                <a class="nav-link " href="index.php?route=list-atelier">Lister atelier</a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?route=list-categorie">Lister categorie</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link " href="index.php?route=logout">Déconnexion</a>
               </li>
@@ -64,37 +66,55 @@ if (isset($_SESSION["success"])){
               
           switch ($_GET["route"]){
             case "login":
-              include("auth/login.php");
+              include("page/auth/login.php");
               break;
             case "check_login":
-            include("auth/check_login.php");
+            include("page/auth/check_login.php");
               break;  
             case "logout":
-                include("auth/logout.php");
+                include("page/auth/logout.php");
                 break;                        
-            case "list":
-                include("atelier/list.php");
+            case "list-atelier":
+                include("page/atelier/list.php");
                 break;
-            case "create":
-                include("atelier/create.php");
+            case "create-atelier":
+                include("page/atelier/create.php");
                 break;
-            case "store":
-              include("atelier/store.php");
+            case "store-atelier":
+              include("page/atelier/store.php");
               break; 
-            case "delete":
-                include("atelier/delete.php");
+            case "delete-atelier":
+                include("page/atelier/delete.php");
                 break; 
-            case "edit":
-                  include("atelier/edit.php");
+            case "edit-atelier":
+                  include("page/atelier/edit.php");
                   break;
-              case "update":
-                include("atelier/update.php");
-                break;                             
+            case "update-atelier":
+                include("page/atelier/update.php");
+                break;  
+            case "list-categorie":
+                include("page/categorie/list.php");
+                break;
+            case "create-categorie":
+                include("page/categorie/create.php");
+                break;
+            case "store-categorie":
+              include("page/categorie/store.php");
+              break; 
+            case "delete-categorie":
+                include("page/categorie/delete.php");
+                break; 
+            case "edit-categorie":
+                  include("page/categorie/edit.php");
+                  break;
+            case "update-categorie":
+                include("page/categorie/update.php");
+                break;                                            
             default : 
             if(isset($_SESSION["login"])){
               echo "quelle belle correction";
             }else{
-              include("auth/login.php");
+              include("page/auth/login.php");
             }
           }
         }
@@ -102,7 +122,7 @@ if (isset($_SESSION["success"])){
           if(isset($_SESSION["login"])){
             echo "quelle belle correction";
           }else{
-            include("auth/login.php");
+            include("page/auth/login.php");
           }
         }
 
