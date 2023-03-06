@@ -20,6 +20,16 @@ DROP DATABASE IF EXISTS `tp_php_sio`;
 CREATE DATABASE IF NOT EXISTS `tp_php_sio` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `tp_php_sio`;
 
+-- Listage de la structure de table tp_php_sio. categorie
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
+  `id_categorie` int NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id_categorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 -- Listage de la structure de table tp_php_sio. atelier
 DROP TABLE IF EXISTS `atelier`;
 CREATE TABLE IF NOT EXISTS `atelier` (
@@ -32,24 +42,6 @@ CREATE TABLE IF NOT EXISTS `atelier` (
   CONSTRAINT `FK_atelier_categorie` FOREIGN KEY (`fk_categorie`) REFERENCES `categorie` (`id_categorie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table tp_php_sio.atelier : ~2 rows (environ)
-INSERT INTO `atelier` (`id_atelier`, `titre`, `nb_inscrits`, `fk_categorie`) VALUES
-	(20, 'Don de moelle osseuse', 0, 1),
-	(22, 'Activité physique', 0, 5);
-
--- Listage de la structure de table tp_php_sio. categorie
-DROP TABLE IF EXISTS `categorie`;
-CREATE TABLE IF NOT EXISTS `categorie` (
-  `id_categorie` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`id_categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- Listage des données de la table tp_php_sio.categorie : ~0 rows (environ)
-INSERT INTO `categorie` (`id_categorie`, `libelle`, `code`) VALUES
-	(1, 'Santé', 'SA'),
-	(5, 'Sport', 'SP');
 
 -- Listage de la structure de table tp_php_sio. user
 DROP TABLE IF EXISTS `user`;
